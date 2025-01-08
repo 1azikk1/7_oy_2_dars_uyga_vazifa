@@ -118,9 +118,11 @@
             <li>
               <a class="dropdown-item" href="{% url 'home' %}">My profile</a>
             </li>
+            {% if request.user.is_superuser or request.user.is_staff %}
             <li>
-              <a class="dropdown-item" href="{% url 'home' %}">Settings</a>
+              <a class="dropdown-item" href="{% url 'admin:index' %}">Admin Panel</a>
             </li>
+            {% endif %}
             <li>
               <a class="dropdown-item" href="{% url 'user_logout' %}">Logout</a>
             </li>
